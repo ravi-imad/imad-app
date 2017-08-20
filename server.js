@@ -51,7 +51,7 @@ var articles = {
             </p>`
     }
 };
-var counter=0;
+
 function createTemplate(data) {
   var title = data.title;
   var heading = data.heading;
@@ -82,7 +82,10 @@ function createTemplate(data) {
     </html> `;
     return htmlTemplate;
 }
-app.get('/counter', function(req, res){
+
+var counter=0;
+
+app.get('/counter', function(req, res) {
    counter = counter+1; 
    res.send(counter, toString());
 });
