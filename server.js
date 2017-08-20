@@ -9,7 +9,8 @@ var articles = {
     'article-one' : {
         title : 'Article One | Ravi',
         heading : 'Article One',
-        content : 
+        content : `
+            
             <p>
                 This is the content of the article.This is the content of the article.This is the content of the article.
                 This is the content of the article.This is the content of the article.This is the content of the article.
@@ -18,30 +19,12 @@ var articles = {
                 This is the content of the article.This is the content of the article.This is the content of the article.
                 This is the content of the article.This is the content of the article.This is the content of the article.
                 This is the content of the article.This is the content of the article.This is the content of the article.
-            </p>
-            <p>
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-            </p>
-            <p>
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-                This is the content of the article.This is the content of the article.This is the content of the article.
-            </p>
+            </p>`
     },
     'artile-two' : {
         title : 'Article Two | Ravi',
         heading : 'Article Two',
-        content : 
+        content : `
              <p>
                 This is the content of the article.This is the content of the article.This is the content of the article.
                 This is the content of the article.This is the content of the article.This is the content of the article.
@@ -50,13 +33,13 @@ var articles = {
                 This is the content of the article.This is the content of the article.This is the content of the article.
                 This is the content of the article.This is the content of the article.This is the content of the article.
                 This is the content of the article.This is the content of the article.This is the content of the article.
-            </p>
+            </p>`
             
     },
     'article-three' : {
         title : 'Article Three | Ravi',
         heading : 'Article Three',
-        content : 
+        content : `
              <p>
                 This is the content of the article.This is the content of the article.This is the content of the article.
                 This is the content of the article.This is the content of the article.This is the content of the article.
@@ -65,7 +48,7 @@ var articles = {
                 This is the content of the article.This is the content of the article.This is the content of the article.
                 This is the content of the article.This is the content of the article.This is the content of the article.
                 This is the content of the article.This is the content of the article.This is the content of the article.
-            </p>
+            </p>`
     }
 };
 function crateTemplate(data) {
@@ -73,7 +56,7 @@ function crateTemplate(data) {
   var heading = data.heading;
   var content = data.content;
   
-  var htmlTemplate =
+  var htmlTemplate =`
   <html>
     <head>
         <title>
@@ -95,10 +78,9 @@ function crateTemplate(data) {
         </div>
         </div>
     </body>
-    </html>
-    ;
+    </html>`;
     return htmlTemplate;
-};
+}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
