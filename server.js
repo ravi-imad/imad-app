@@ -5,18 +5,108 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles = {
+    'article-one' : {
+        title : 'Article One | Ravi',
+        heading : 'Article One',
+        content : 
+            <p>
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+            </p>
+            <p>
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+            </p>
+            <p>
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+            </p>
+    },
+    'artile-two' : {
+        title : 'Article Two | Ravi',
+        heading : 'Article Two',
+        content : 
+             <p>
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+            </p>
+            
+    },
+    'article-three' : {
+        title : 'Article Three | Ravi',
+        heading : 'Article Three',
+        content : 
+             <p>
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+                This is the content of the article.This is the content of the article.This is the content of the article.
+            </p>
+    }
+};
+function crateTemplate(data) {
+  var title = data.title;
+  var heading = data.heading;
+  var content = data.content;
+  
+  var htmlTemplate =
+  <html>
+    <head>
+        <title>
+            ${title}
+        </title>
+        <link rel="stylesheet" href="/ui/style.css" type="text/css" />
+    </head>
+    <body>
+        <div class="container">
+        <div>
+            <a href="/">Home</a>
+            <hr />
+        </div>
+        <h3>
+            ${heading}
+        </h3>
+        <div>
+            ${content}
+        </div>
+        </div>
+    </body>
+    </html>
+    ;
+    return htmlTemplate;
+};
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one' , function(req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
-});
-app.get('/article-two' , function(req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three' , function(req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName' , function(req, res) {
+    var articleName = req.parans.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
