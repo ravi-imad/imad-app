@@ -22,6 +22,6 @@ button.onclick = function(){
     };
     
     //Make a request
-    request.open('GET', "http://ravikumarjha6124.imad.hasura-app.io", true);
+    request.open('GET', "http://ravikumarjha6124.imad.hasura-app.io/counter", true);
     request.send(null);
 };
