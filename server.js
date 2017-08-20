@@ -37,7 +37,7 @@ var articles = {
             
     },
     'article-three' : {
-        title : "Article Three | Ravi",
+        title : 'Article Three | Ravi',
         heading : 'Article Three',
         content : `
              <p>
