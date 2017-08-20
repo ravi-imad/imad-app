@@ -51,7 +51,7 @@ var articles = {
             </p>`
     }
 };
-function crateTemplate(data) {
+function createTemplate(data) {
   var title = data.title;
   var heading = data.heading;
   var content = data.content;
