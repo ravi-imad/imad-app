@@ -21,8 +21,8 @@ var articles = {
                 This is the content of the article.This is the content of the article.This is the content of the article.
             </p>`
     },
-    'artile-two' : {
-        title : "Article Two | Ravi",
+    'article-two' : {
+        title : 'Article Two | Ravi',
         heading : 'Article Two',
         content : `
              <p>
